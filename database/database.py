@@ -9,10 +9,14 @@ app.config.from_pyfile('../settings.py')
 class Database:
 
     def __init__(self, collection):
-        client = pymongo.MongoClient(
-            "mongodb+srv://{}:{}@cluster-01.iozzj.mongodb.net/Cluster-01?retryWrites=true&w=majority".format(DB_USER, DB_PASS))
-        self.db = client['ope-db']
-        self.col = client['ope-db'].collection
+        try:
+            conex = "mongodb+srv://admin:rootadmin@cluster-01.iozzj.mongodb.net/Cluster-01?retryWrites=true&w=majority"
+            client = pymongo.MongoClient(conex)
+            self.db = client['ope-db']
+            self.col = client['ope-db'].collection
+        except:
+            print(conex)
+            return conex
 
     def get_all(self, col):
         data = []
