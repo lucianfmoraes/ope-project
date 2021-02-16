@@ -1,6 +1,5 @@
 import pymongo
-from flask import Flask, jsonify
-app = Flask(__name__)
+from flask import jsonify
 
 
 class Database:
