@@ -3,6 +3,11 @@ from database.database import Database
 app = Flask(__name__)
 
 
+@app.rout('/')
+def welcome():
+    return 'Welcome to Hardware builder API home endpoint'
+
+
 @app.route('/users', methods=['GET'])
 def get_all_users():
     database = Database('users')
