@@ -3,20 +3,13 @@ from flask import Flask, jsonify
 app = Flask(__name__)
 
 
-app.config.from_pyfile('../settings.py')
-
-
 class Database:
 
     def __init__(self, collection):
-        try:
-            conex = "mongodb+srv://admin:rootadmin@cluster-01.iozzj.mongodb.net/Cluster-01?retryWrites=true&w=majority"
-            client = pymongo.MongoClient(conex)
-            self.db = client['ope-db']
-            self.col = client['ope-db'].collection
-        except:
-            print(conex)
-            return conex
+        conex = "mongodb+srv://admin:rootadmin@cluster-01.iozzj.mongodb.net/Cluster-01?retryWrites=true&w=majority"
+        client = pymongo.MongoClient(conex)
+        self.db = client['ope-db']
+        self.col = client['ope-db'].collection
 
     def get_all(self, col):
         data = []
