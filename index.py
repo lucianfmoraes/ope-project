@@ -3,7 +3,7 @@ from database.database import Database
 app = Flask(__name__)
 
 
-@app.rout('/')
+@app.route('/')
 def welcome():
     return 'Welcome to Hardware builder API home endpoint'
 
