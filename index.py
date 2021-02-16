@@ -15,6 +15,12 @@ def get_all_users():
     return res
 
 
+@app.rout('/conn')
+def get_conn():
+    conex = "mongodb+srv://admin:rootadmin@cluster-01.iozzj.mongodb.net/Cluster-01?retryWrites=true&w=majority"
+    return conex
+
+
 @app.route('/user', methods=['GET'])
 def get_user():
     database = Database('users')
