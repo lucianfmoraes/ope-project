@@ -3,11 +3,6 @@ from database.database import Database
 app = Flask(__name__)
 
 
-@app.route('/')
-def home():
-    return 'You hited Home page'
-
-
 @app.route('/users', methods=['GET'])
 def get_all_users():
     database = Database('users')
